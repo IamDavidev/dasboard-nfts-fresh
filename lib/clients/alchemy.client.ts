@@ -1,7 +1,7 @@
 import { Alchemy, type AlchemySettings, Network } from 'npm:alchemy-sdk';
 
 const settings: AlchemySettings = {
-  apiKey: '',
+  apiKey: Deno.env.get('ALCHEMY_API_KEY'),
   network: Network.ETH_MAINNET,
 };
 

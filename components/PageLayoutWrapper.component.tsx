@@ -1,7 +1,7 @@
-import { asset, Head } from '$fresh/runtime.ts';
+import { Head } from '$fresh/runtime.ts';
+import 'https://deno.land/std@0.145.0/dotenv/load.ts';
 import { type ComponentChildren, type FunctionalComponent, type JSX } from 'preact';
 import { Navbar } from './Navbar.component.tsx';
-import 'https://deno.land/std@0.145.0/dotenv/load.ts';
 
 export interface IPropsPageLayout {
 	children: ComponentChildren;
@@ -17,14 +17,11 @@ export const PageLayoutWrapper: FunctionalComponent<
 		<>
 			<Head>
 				<title>
-					{title}
+					{title} + {'NFrehT'}
 				</title>
 			</Head>
-			<div class='bg-black min-h-screen max-w-screen-2xl mx-auto overflow-hidden text-white font-bold'>
+			<div class='bg-black min-h-screen max-w-screen-2xl mx-auto overflow-hidden text-white font-sans font-bold'>
 				<Navbar />
-				<time>
-					{Deno.env.get('TEST')}
-				</time>
 				<main class='p-20'>
 					{children}
 				</main>
