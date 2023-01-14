@@ -6,12 +6,13 @@ import { Navbar } from './Navbar.component.tsx';
 export interface IPropsPageLayout {
 	children: ComponentChildren;
 	title: string;
+	color?: string;
 }
 
 export const PageLayoutWrapper: FunctionalComponent<
 	IPropsPageLayout
 > = (
-	{ children, title }: IPropsPageLayout,
+	{ children, title, color }: IPropsPageLayout,
 ): JSX.Element => {
 	return (
 		<>
@@ -20,9 +21,9 @@ export const PageLayoutWrapper: FunctionalComponent<
 					{title} + {'NFrehT'}
 				</title>
 			</Head>
-			<div class='bg-black min-h-screen max-w-screen-2xl mx-auto overflow-hidden text-white font-sans font-bold'>
+			<div class={`bg-[#080913] min-h-screen max-w-screen-2xl mx-auto overflow-hidden text-white font-sans font-bold`}>
 				<Navbar />
-				<main class='p-20'>
+				<main class={'p-20 bg-[${color}]'}>
 					{children}
 				</main>
 			</div>

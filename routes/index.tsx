@@ -1,11 +1,9 @@
 import { type Handlers, type PageProps } from '$fresh/server.ts';
-import { type FunctionalComponent, type JSX } from 'preact';
+import { type JSX } from 'preact';
 
 import { nftsApiHandler } from '~lib/api/nfts.api.ts';
 import { IAdapterNFT } from '~lib/interfaces/AdapterNFT.interface.ts';
-import { BinanceIcon } from '../components/icons/Binance.icon.tsx';
-import { CoinbaseIcon } from '../components/icons/Coinbase.icon.tsx';
-import { MetamaskIcon } from '../components/icons/Metamask.icon.tsx';
+import { ImageHeader } from '../components/ImageHeader.component.tsx';
 import { PageLayoutWrapper } from '../components/PageLayoutWrapper.component.tsx';
 
 export const handler: Handlers = {
@@ -24,7 +22,7 @@ export default function Home(props: PageProps): JSX.Element {
 	return (
 		<>
 			<PageLayoutWrapper title='NFreshT'>
-				<header class='flex justify-center flex-row items-start'>
+				<header class='flex justify-center flex-row items-center'>
 					<div class='flex flex-col gap-4'>
 						<h1 className='text-white text-7xl font-bold max-w-[600px]'>
 							Discover & Collect
@@ -37,18 +35,22 @@ export default function Home(props: PageProps): JSX.Element {
 							The largest NFT marketplace. Authentic and truly unique digital creation. Signed and issued by the
 							creator, made possible by blockchain technology
 						</p>
-						<div>
-							<button
+						<div class='mt-8'>
+							<a
+								href='/dashboard'
 								class='text-white px-12 py-4 rounded-3xl mr-4 text-xl font-bold'
 								style={{
 									background: 'linear-gradient(60deg,#3633D0 0%,#89C6FF 100%)',
 								}}
 							>
-								let's explore
-							</button>
-							<button class='text-white border-blue-700 border border-solid px-12 py-4 rounded-3xl text-xl font-bold'>
-								sell NFT
-							</button>
+								Let's explore
+							</a>
+							<a
+								href='/dashboard'
+								class='text-white border-blue-700 border border-solid px-12 py-4 rounded-3xl text-xl font-bold'
+							>
+								Sell NFT
+							</a>
 						</div>
 					</div>
 					<ImageHeader
@@ -61,36 +63,3 @@ export default function Home(props: PageProps): JSX.Element {
 		</>
 	);
 }
-
-interface IImageHeaderProps {
-	src: string | undefined;
-	alt: string;
-	class?: string;
-}
-
-export const ImageHeader: FunctionalComponent<IImageHeaderProps> = ({
-	src,
-	alt,
-	class: className,
-}: IImageHeaderProps): JSX.Element => {
-	return (
-		<div class='relative min-w-[650px]'>
-			<picture class='w-full'>
-				<span class='block w-full h-full'>
-					<img src={src} alt={alt} class={className} />
-				</span>
-			</picture>
-			<div
-				class='flex flex-row gap-8 absolute -bottom-1 left-0 px-8 py-11 rounded-2xl border border-solid border-yellow-400'
-				style={{
-					background: 'linear-gradient(180deg, rgba(255,255, 255, .10) 0%, rgba(0, 0, 0, 0.10) 100%)',
-					backdropFilter: 'blur(20px)',
-				}}
-			>
-				<MetamaskIcon color={'white'} class={'w-48'} />
-				<BinanceIcon color={'white'} class={'w-48'} />
-				<CoinbaseIcon color={'white'} class={'w-48'} />
-			</div>
-		</div>
-	);
-};
