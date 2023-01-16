@@ -21,7 +21,6 @@ export async function getNFTs({
       pageSize: limit,
     }
   );
-  console.info('🚀 ~>  file: getNFTsAll.service.ts:25 ~>  response', response);
 
   return {
     nfts: response.ownedNfts,
