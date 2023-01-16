@@ -6,7 +6,7 @@ const MarketplacePage: FunctionalComponent<PageProps> = (props): JSX.Element => 
 	console.info('🚀 ~>  file: marketplace.tsx:16 ~>  props', props.data);
 	return (
 		<PageLayoutWrapper title='Markteplace'>
-			<h2 className='text-center'>
+			<h2 className='text-center text-5xl'>
 				Explore Marketplace
 			</h2>
 		</PageLayoutWrapper>
