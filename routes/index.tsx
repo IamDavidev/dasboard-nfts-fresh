@@ -5,9 +5,8 @@ import { nftsApiHandler } from '~lib/api/nfts.api.ts';
 import { IAdapterNFT } from '~lib/interfaces/AdapterNFT.interface.ts';
 import { ImageHeader } from '../components/ImageHeader.component.tsx';
 import { PageLayoutWrapper } from '../components/PageLayoutWrapper.component.tsx';
-import { randomPosition } from '../lib/utils/randomPositionList.ts';
+import { randomPosition } from '~lib/utils/randomPositionList.ts';
 
-// const ownerExample = '0x7c4a8e2a7b26f8b14f0d0d1d7d7c5e602105af5f';
 const ownerExample = '0xF5FFF32CF83A1A614e15F25Ce55B0c0A6b5F8F2c';
 
 export const handler: Handlers = {
