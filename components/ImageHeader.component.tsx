@@ -10,6 +10,30 @@ interface IImageHeaderProps {
 	class?: string;
 }
 
+export const VIDEO_FORMATS = {
+	MP4: 'mp4',
+	WEBM: 'webm',
+};
+
+export const ImgAdapter: FunctionalComponent<IImageHeaderProps> = ({
+	alt,
+	src,
+	class: className,
+}): JSX.Element => {
+	// change for image generator
+	if (!src) return <></>;
+
+	if (src.includes(VIDEO_FORMATS.MP4) || src.includes(VIDEO_FORMATS.WEBM)) {
+		return (
+			<video class='w-full' loop muted>
+				<source src={src} type='video/mp4' />
+			</video>
+		);
+	}
+
+	return <img src={src} alt={alt} class={className} />;
+};
+
 export const ImageHeader: FunctionalComponent<IImageHeaderProps> = ({
 	src,
 	alt,
@@ -19,7 +43,7 @@ export const ImageHeader: FunctionalComponent<IImageHeaderProps> = ({
 		<div class='relative min-w-[650px]'>
 			<picture class='w-full'>
 				<span class='block w-full h-full'>
-					<img src={src} alt={alt} class={className} />
+					<ImgAdapter src={src} alt={alt} class={className} />
 				</span>
 			</picture>
 			<div
