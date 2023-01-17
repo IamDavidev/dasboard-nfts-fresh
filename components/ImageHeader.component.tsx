@@ -25,7 +25,7 @@ export const ImgAdapter: FunctionalComponent<IImageHeaderProps> = ({
 
 	if (src.includes(VIDEO_FORMATS.MP4) || src.includes(VIDEO_FORMATS.WEBM)) {
 		return (
-			<video class='w-full' loop muted>
+			<video class={className} loop muted>
 				<source src={src} type='video/mp4' />
 			</video>
 		);
